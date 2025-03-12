@@ -15,6 +15,5 @@ class User(db.Model):
 def index():
     return jsonify({"message": "Welcome to Flask + PostgreSQL + Nginx"})
 
-@app.before_first_request
-def create_tables():
+with app.app_context():
     db.create_all()
